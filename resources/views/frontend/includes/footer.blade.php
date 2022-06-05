@@ -122,3 +122,28 @@
         </div>
     </div>
 </footer>
+
+<div class="back-top">
+        <a href="#">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="video-modal">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">salam</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ScMzIvxBSi4"
+                            title="YouTube video player" style="border: 0; width: 100%; height: 500px;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->

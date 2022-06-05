@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('title')
-    Kredit-emlak.az
+    Tour - Homepage
 @endsection
 @section('keyword')
 @endsection
@@ -10,15 +10,8 @@
 @endsection
 @section('content')
     <!--Preload-->
-    <div class="preloader">
-        <div class="preloader_image">
-            <div class="sk-double-bounce">
-                <div class="sk-child sk-double-bounce1"></div>
-                <div class="sk-child sk-double-bounce2"></div>
-            </div>
-        </div>
-    </div>
-    @include('frontend.sections.header')
+
+    @include('frontend.includes.header')
     <!-- end nav -->
     <section class="carousel slide" id="banner" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -617,31 +610,8 @@
     </section>
     <!-- end blog -->
     <!-- start footer -->
-    @include('frontend.sections.footer')
+    @include('frontend.includes.footer')
     <!-- end footer -->
     <!-- Bact to top -->
-    <div class="back-top">
-        <a href="#">
-            <i class="fa fa-angle-up"></i>
-        </a>
-    </div>
-
-    <div class="modal fade" tabindex="-1" role="dialog" id="video-modal">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">salam</button>
-                </div>
-
-                <div class="modal-body">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ScMzIvxBSi4"
-                            title="YouTube video player" style="border: 0; width: 100%; height: 500px;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    
 @endsection
