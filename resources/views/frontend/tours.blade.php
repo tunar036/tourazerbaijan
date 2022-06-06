@@ -57,138 +57,31 @@
                 </div>
             </div>
             <div class="row" data-cues="slideInLeft">
-                <div class="col-md-6 col-lg-4">
-                    <a href="{{route('tour-detail')}}">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/1.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
+                @foreach ($tours as $tour)
+                    <div class="col-md-6 col-lg-4">
+                        <a href="{{ route('tour-detail') }}">
+                            <div class="card tour-card wow fadeIn">
+                                <img class="card-img-top" src="{{Voyager::image($tour->image)}}" alt="">
+                                <span class="tour-duration">
+                                    <i class="fas fa-history"></i> {{$tour->days}} Days </span>
+                                <div class="card-body">
+                                    <div class="tour-tags">
+                                        <span class="tour-price">From ${{$tour->price}}</span>
+                                        <span class="tour-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i> (2) </span>
+                                    </div>
+                                    <h6>{{$tour->title}}</h6>
+                                    <p class="mb-0">{{$tour->address}}</p>
                                 </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/2.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/3.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/1.png')}}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/3.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/1.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endforeach
+
             </div>
             <div class="row">
                 <div class="pagination-container">

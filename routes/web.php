@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,7 @@ Route::get('about-us',function(){
     return view('frontend.about');
 })->name('about');
 
-Route::get('tours',function(){
-    return view('frontend.tours');
-})->name('tours');
+Route::get('tours',[TourController::class,'index'])->name('tours');
 
 Route::get('tour-detail',function(){
     return view('frontend.tour-detail');
@@ -43,3 +42,7 @@ Route::get('blog',function(){
 Route::get('contact-us',function(){
     return view('frontend.contact');
 })->name('contact');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
