@@ -43,7 +43,7 @@
                 <div class="col d-flex justify-content-end">
                     <div class="custom-select">
                         <select>
-                            <option value="0">Sort</option>
+                            <option value="0">{{__('lang.Sort')}}</option>
                             <option value="1">Date</option>
                             <option value="2">Rating</option>
                         </select>
@@ -74,8 +74,9 @@
                                             <i class="fas fa-star"></i>
                                             <i class="far fa-star"></i> (2) </span>
                                     </div>
-                                    <h6>{{$tour->title}}</h6>
-                                    <p class="mb-0">{{$tour->address}}</p>
+                                    
+                                    <h6>{{$tour->getTranslatedAttribute('title', App::getLocale(), 'az');}} </h6>
+                                    <p class="mb-0">{{$tour->address->getTranslatedAttribute('name', App::getLocale(), 'az')}}</p>
                                 </div>
                             </div>
                         </a>

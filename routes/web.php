@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\TourController;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +48,10 @@ Route::get('contact-us',function(){
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+});
+
+
+Route::get('/locale/{locale}',function($locale) {
+    session()->put('locale',$locale);
+    return Redirect::back();
 });

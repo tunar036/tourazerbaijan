@@ -13,16 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tours', function (Blueprint $table) {
+        Schema::create('tercumes', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->integer('price');
-            $table->integer('address_id');
-            $table->integer('days')->nullable();
-            $table->text('text')->nullable();
-            $table->string('location');
-            $table->enum('status', ['1', '0'])->default('1');
-            $table->string('image');
+            $table->string('key');
+            $table->string('text');
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tours');
+        Schema::dropIfExists('tercumes');
     }
 };

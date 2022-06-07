@@ -40,6 +40,11 @@
             <div class="booking-button">
                 <a href="booking.html" class="btn btn-primary btn-white">Booking Now</a>
             </div>
+
+            <ul>
+                <li><a href="{{ url('/locale/az') }}">az</a></li>
+                <li><a href="{{ url('/locale/en') }}">en</a></li>
+            </ul>
         </div>
     </div>
 </nav>
