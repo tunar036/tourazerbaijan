@@ -38,94 +38,19 @@
     <section class="section-spacing inverse-bg destinations">
         <div class="container">
             <div class="row" data-cues="slideInLeft">
-                <div class="col-md-6 col-12">
-                    <div class="destination-item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/1.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Malé</h4>
-                                <h3>Maldives</h3>
-                            </div>
-                        </a>
+                @foreach ($categories as $category)
+                    <div class="col-md-6 col-12">
+                        <div class="destination-item">
+                            <a href="tours.html">
+                                <img src="{{Voyager::image($category->image)}}" alt="">
+                                <div class="info-overlay">
+                                    <h4>{{$category->getTranslatedAttribute('name', App::getLocale(), 'az');}}</h4>
+                                    <h3>{{$category->getTranslatedAttribute('title', App::getLocale(), 'az');}}</h3>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="destination-item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/2.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Bangkok</h4>
-                                <h3>Thailand</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/3.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Kuala Lumpur</h4>
-                                <h3>Malaysia</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/4.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Kathmandu</h4>
-                                <h3>Nepal</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/5.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Jakarta</h4>
-                                <h3>Indonesia</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/5.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Kuala Lumpur</h4>
-                                <h3>Malaysia</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/3.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Kathmandu</h4>
-                                <h3>Nepal</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item mb-0">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/4.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Jakarta</h4>
-                                <h3>Indonesia</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TourController;
+use App\Models\Category;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +34,7 @@ Route::get('tour-detail',function(){
 })->name('tour-detail');
 
 
-Route::get('destinations',function(){
-    return view('frontend.destinations');
-})->name('destinations');
+Route::get('destinations',[CategoryController::class,'index'])->name('destinations');
 
 
 Route::get('blog',function(){

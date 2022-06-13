@@ -1,14 +1,11 @@
-<nav class="navbar navbar-expand-lg {{ (Request::is('/')) ? 'primary-bg' : 'white-bg' }}">
+<nav class="navbar navbar-expand-lg {{ Request::is('/') ? 'primary-bg' : 'white-bg' }}">
     <div class="container">
         <a class="navbar-brand" href="index.html">
             {{-- <img src="{{ asset('frontend/img/logo.png') }}" alt="Logo"> --}}
-            <img 
-            src="
-            @if(Request::is('/'))
-            {{ asset('frontend/img/logo.png') }}
+            <img src="
+            @if (Request::is('/')) {{ asset('frontend/img/logo.png') }}
             @else
-            {{ asset('frontend/img/logo-colored.png') }}
-            @endif
+            {{ asset('frontend/img/logo-colored.png') }} @endif
             " alt="Logo">
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -19,32 +16,31 @@
         <div class="collapse navbar-collapse flex-grow-1" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('index')}}">Home</a>
+                    <a class="nav-link" href="{{ route('index') }}">{{ __('lang.home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('about')}}">About Us</a>
+                    <a class="nav-link" href="{{ route('about') }}">{{ __('lang.about') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('tours')}}">Tours</a>
+                    <a class="nav-link" href="{{ route('tours') }}">{{ __('lang.tours') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('destinations')}}">Destinations</a>
+                    <a class="nav-link" href="{{ route('destinations') }}">{{ __('lang.destinations') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('blog')}}">Blog</a>
+                    <a class="nav-link" href="{{ route('blog') }}">{{ __('lang.blog') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
+                    <a class="nav-link" href="{{ route('contact') }}">{{ __('lang.contact') }}</a>
                 </li>
             </ul>
             <div class="booking-button">
                 <a href="booking.html" class="btn btn-primary btn-white">Booking Now</a>
             </div>
-
-            <ul>
-                <li><a href="{{ url('/locale/az') }}">az</a></li>
-                <li><a href="{{ url('/locale/en') }}">en</a></li>
-            </ul>
+                <ul>
+                    <li ><a @if(Session('locale') == 'en') style="color:#029E9D;" @endif href="{{ url('/locale/en') }}">en</a></li>
+                    <li><a @if(Session('locale') == 'az') style="color:#029E9D;" @endif href="{{ url('/locale/az') }}">az</a></li>
+                </ul>
         </div>
     </div>
 </nav>
