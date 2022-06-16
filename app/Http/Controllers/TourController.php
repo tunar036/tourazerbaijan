@@ -9,7 +9,8 @@ class TourController extends Controller
 {
     public function index()
     {
-        $tours = Tour::with('translations')->get();
+        $tours = Tour::active()->get();
+        // dd($tours);
         return view('frontend.tours',compact('tours'));
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\TourController;
-use App\Models\Category;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +19,7 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('index');
+Route::get('/',[HomepageController::class,'index'])->name('index');
 
 Route::get('about-us',function(){
     return view('frontend.about');

@@ -15,84 +15,32 @@
     <!-- end nav -->
     <section class="carousel slide" id="banner" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="banner-caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="hero-text">
-                                    <h3 class="animated fadeInDown">Explore Your Travel</h3>
-                                    <h1 class="animated fadeInUp">Start planning your dream trip today!</h1>
-                                    <p class="animated fadeInUp">I travel not to go anywhere, but to go. I travel for
-                                        travel's sake the great affair is to move.</p>
-                                    <div class="banner-button-group">
-                                        <a href="contact-us.html" class="btn btn-primary animated fadeInUp">Contact
-                                            Us</a>
-                                        <a href="tours.html" class="btn btn-primary learn-more animated fadeInUp">Learn
-                                            More</a>
+            @foreach ($sliders as $item)
+                <div class="carousel-item @if ($loop->first) active @endif">
+                    <div class="banner-caption">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="hero-text">
+                                        <h3 class="animated fadeInDown">
+                                            {{ $item->getTranslatedAttribute('title', App::getLocale(), 'az') }}</h3>
+                                        <h1 class="animated fadeInUp">
+                                            {{ $item->getTranslatedAttribute('short_text', App::getLocale(), 'az') }}</h1>
+                                        <p class="animated fadeInUp">{!! $item->getTranslatedAttribute('description', App::getLocale(), 'az') !!}</p>
+                                        <div class="banner-button-group">
+                                            <a href="{{ $item->link }}" class="btn btn-primary animated fadeInUp">Learn
+                                                More</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <img class="tilt-img" src="{{ asset('frontend/img/banner/slide-1.png') }}"
-                                    alt="Slider Image">
+                                <div class="col-md-6">
+                                    <img class="tilt-img" src="{{ Voyager::image($item->image) }}" alt="Slider Image">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="banner-caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="hero-text">
-                                    <h3 class="animated fadeInLeft">Explore Your Travel</h3>
-                                    <h1 class="animated fadeInLeft">Trusted Travel Agency</h1>
-                                    <p class="animated fadeInLeft">I travel not to go anywhere, but to go. I travel for
-                                        travel's sake the great affair is to move.</p>
-                                    <div class="banner-button-group">
-                                        <a href="contact-us.html" class="btn btn-primary animated fadeInUp">Contact
-                                            Us</a>
-                                        <a href="tours.html" class="btn btn-primary learn-more animated fadeInUp">Learn
-                                            More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <img class="tilt-img" src="{{ asset('frontend/img/banner/slide-2.png') }}"
-                                    alt="Slider Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="banner-caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="hero-text">
-                                    <h3 class="animated fadeInRight">Explore Your Travel</h3>
-                                    <h1 class="animated fadeInRight">Get Exclusive Tour</h1>
-                                    <p class="animated fadeInRight">I travel not to go anywhere, but to go. I travel for
-                                        travel's sake the great affair is to move.</p>
-                                    <div class="banner-button-group">
-                                        <a href="contact-us.html" class="btn btn-primary animated fadeInUp">Contact
-                                            Us</a>
-                                        <a href="tours.html" class="btn btn-primary learn-more animated fadeInUp">Learn
-                                            More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <img class="tilt-img" src="{{ asset('frontend/img/banner/slide-3.png') }}"
-                                    alt="Slider Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
             <button class="carousel-control-prev" type="button" data-bs-target="#banner" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -125,61 +73,19 @@
                 </div>
             </div>
             <div class="row" data-cues="slideInLeft">
-                <div class="col-md-6 col-12">
-                    <div class="destination-item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/1.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Malé</h4>
-                                <h3>Maldives</h3>
-                            </div>
-                        </a>
+                @foreach ($categories as $category)
+                    <div class="col-md-6 col-12">
+                        <div class="destination-item">
+                            <a href="tours.html">
+                                <img src="{{Voyager::image($category->image)}}" alt="">
+                                <div class="info-overlay">
+                                    <h4>{{$category->getTranslatedAttribute('name', App::getLocale(), 'az');}}</h4>
+                                    <h3>{{$category->getTranslatedAttribute('title', App::getLocale(), 'az');}}</h3>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="destination-item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/2.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Bangkok</h4>
-                                <h3>Thailand</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/3.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Kuala Lumpur</h4>
-                                <h3>Malaysia</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/4.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Kathmandu</h4>
-                                <h3>Nepal</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-12">
-                    <div class="destination-item item mb-0">
-                        <a href="tours.html">
-                            <img src="{{ asset('frontend/img/destinations/5.png') }}" alt="">
-                            <div class="info-overlay">
-                                <h4>Jakarta</h4>
-                                <h3>Indonesia</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -613,5 +519,4 @@
     @include('frontend.includes.footer')
     <!-- end footer -->
     <!-- Bact to top -->
-    
 @endsection

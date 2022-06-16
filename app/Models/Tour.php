@@ -10,9 +10,16 @@ class Tour extends Model
 {
     use HasFactory, Translatable;
     protected $translatable = ['title', 'text'];
+    public $with = ['translations', 'address'];
 
     public function address()
     {
         return $this->belongsTo(Address::class);
+    }
+
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
     }
 }

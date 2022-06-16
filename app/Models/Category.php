@@ -16,4 +16,9 @@ class Category extends Model
     {
         return $this->hasMany(Tour::class,'address_id');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }

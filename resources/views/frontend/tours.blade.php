@@ -58,6 +58,7 @@
             </div>
             <div class="row" data-cues="slideInLeft">
                 @foreach ($tours as $tour)
+                {{-- @dd($tour->address->getTranslatedAttribute('name', App::getLocale(), 'az')) --}}
                     <div class="col-md-6 col-lg-4">
                         <a href="{{ route('tour-detail') }}">
                             <div class="card tour-card wow fadeIn">
