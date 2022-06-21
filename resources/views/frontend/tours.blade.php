@@ -60,7 +60,7 @@
                 @foreach ($tours as $tour)
                 {{-- @dd($tour->address->getTranslatedAttribute('name', App::getLocale(), 'az')) --}}
                     <div class="col-md-6 col-lg-4">
-                        <a href="{{ route('tour-detail') }}">
+                        <a href="{{ route('tour-detail',$tour->id) }}">
                             <div class="card tour-card wow fadeIn">
                                 <img class="card-img-top" src="{{Voyager::image($tour->image)}}" alt="">
                                 <span class="tour-duration">

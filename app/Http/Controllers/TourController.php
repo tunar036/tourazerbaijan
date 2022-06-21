@@ -13,4 +13,12 @@ class TourController extends Controller
         // dd($tours);
         return view('frontend.tours',compact('tours'));
     }
+
+
+    public function single($id)
+    {
+        $tour = Tour::where('id',$id)->active()->firstOrFail();
+        return view('frontend.tour-detail',compact('tour'));
+
+    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TourController;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -26,10 +27,7 @@ Route::get('about-us',function(){
 })->name('about');
 
 Route::get('tours',[TourController::class,'index'])->name('tours');
-
-Route::get('tour-detail',function(){
-    return view('frontend.tour-detail');
-})->name('tour-detail');
+Route::get('tour-detail/{id}',[TourController::class,'single'])->name('tour-detail');
 
 
 Route::get('destinations',[CategoryController::class,'index'])->name('destinations');
@@ -44,10 +42,11 @@ Route::get('contact-us',function(){
     return view('frontend.contact');
 })->name('contact');
 
+Route::post('review',[ReviewController::class,'review'])->name('review');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
 
 Route::get('/locale/{locale}',function($locale) {
     session()->put('locale',$locale);

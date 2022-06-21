@@ -39,16 +39,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="tour-list-details wow fadeIn">
-                        <img class="card-img-top" src="{{ asset('frontend/img/tour/1.png') }}" alt="">
+                        <img class="card-img-top" src="{{Voyager::image($tour->image)}}" alt="">
                         <div class="tour-body">
                             <div class="tour-content">
-                                <h3>A good traveler has no fixed plans and is not intent on arriving.</h3>
-                                <span class="tour-place">Kuala Lumpur, Malaysia</span>
+                                <h3>{{$tour->getTranslatedAttribute('title', App::getLocale(), 'az');}}</h3>
+                                <span class="tour-place">{{$tour->address->getTranslatedAttribute('name', App::getLocale(), 'az')}}</span>
                             </div>
                             <div class="h-border"></div>
                             <div class="tour-tags">
                                 <span class="tour-rating">
-                                    <i class="fas fa-history"></i> 12 days </span>
+                                    <i class="fas fa-history"></i> {{$tour->days}} days </span>
                                 <span class="tour-rating t-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -56,7 +56,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i> (2) </span>
                                 <div class="tour-tag-btn">
-                                    <span class="tour-price">From $50.00</span>
+                                    <span class="tour-price">{{$tour->price}}&#8380</span>
                                 </div>
                             </div>
                         </div>
@@ -64,13 +64,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-lg-6 col-xl-8">
+                <div class="col-md-12 col-lg-12 col-xl-12">
                     <div class="tours-overview">
-                        <h2 class="faq-hedar">Overview</h2>
-                        <p class="tour-title"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown to printer took a galley of type and scrambled it to make a type specimen book. It has that's survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+                        <h2 class="faq-hedar">Tur haqqında </h2>
+                        <p class="tour-title"> {{$tour->getTranslatedAttribute('title', App::getLocale(), 'az');}} </p>
                     </div>
-                    <h2 class="faq-hedar">Tour Amenities</h2>
-                    <div class="blog-single-list">
+                    <p>{!! $tour->getTranslatedAttribute('text', App::getLocale(), 'az'); !!}</p>
+                    {{-- <h2 class="faq-hedar">Tour Amenities</h2> --}}
+                    {{-- <div class="blog-single-list">
                         <div class="list-item">
                             <ul>
                                 <li>
@@ -97,8 +98,8 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <h2 class="faq-hedar">Tour Plan</h2>
+                    </div> --}}
+                    {{-- <h2 class="faq-hedar">Tour Plan</h2>
                     <div class="tour-plan-items">
                         <div class="plan-item">
                             <h3 class="plan-title">Day 1:</h3>
@@ -133,7 +134,7 @@
                                 <span class="tour-facilities">-Unlimited coffee</span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <h2 class="faq-hedar">Tour Location</h2>
                     <div class="col-12 contact-map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3988.8270523294163!2d103.8527512!3d1.2772197!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1632647635261!5m2!1sen!2sbd" class="google-map" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
@@ -181,13 +182,13 @@
                                 <div class="blog-reply-content">
                                     <h5>David Warner</h5>
                                     <span class="reply-date">21 December, 2021</span>
-                                    <span class="tour-rating">
+                                    {{-- <span class="tour-rating">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
-                                    </span>
+                                    </span> --}}
                                     <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable </p>
                                 </div>
                             </div>
@@ -195,7 +196,7 @@
                     </div>
                     <div class="contact-form-wrapper wow fadeIn">
                         <h3>Write a Review</h3>
-                        <div class="form-rating">
+                        {{-- <div class="form-rating">
                             <span class="rating">Rating: </span>
                             <span class="tour-rating">
                                 <i class="fas fa-star active"></i>
@@ -204,24 +205,26 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </span>
-                        </div>
+                        </div> --}}
                         <div class="contact-form">
-                            <form>
+                            <form action="{{route('review')}}" method="POST">
+                                @csrf
                                 <div class="mb-4">
-                                    <input type="text" class="form-control" id="your_name" placeholder="Enter your name">
+                                    <input type="text" class="form-control" id="your_name" name="name" placeholder="Enter your name">
                                 </div>
                                 <div class="mb-4">
-                                    <input type="email" class="form-control" id="email_address" placeholder="Enter email address">
+                                    <input type="email" class="form-control" id="email_address" name="email" placeholder="Enter email address">
                                 </div>
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="keyword" rows="6" placeholder="Type you keyword"></textarea>
+                                    <textarea class="form-control" id="keyword" rows="6" name="text" placeholder="Type you keyword"></textarea>
                                 </div>
+                                <input type="hidden" value="{{$tour->id}}" name="tour_id">
                                 <button type="submit" class="btn btn-primary">Submit Comment</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-6 col-xl-4">
+                {{-- <div class="col-md-12 col-lg-6 col-xl-4">
                     <div class="booking-bg">
                         <form class="row g-3">
                             <div class="col-sm-12">
@@ -288,7 +291,7 @@
                     <div class="col-12 discount-offer">
                         <img src="{{ asset('frontend/img/tour/black-friday.png') }}" alt="Discount Image">
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

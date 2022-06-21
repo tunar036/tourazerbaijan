@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg {{ Request::is('/') ? 'primary-bg' : 'white-bg' }}">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{route('index')}}">
             {{-- <img src="{{ asset('frontend/img/logo.png') }}" alt="Logo"> --}}
             <img src="
             @if (Request::is('/')) {{ asset('frontend/img/logo.png') }}
