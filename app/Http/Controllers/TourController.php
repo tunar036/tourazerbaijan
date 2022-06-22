@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class TourController extends Controller
     public function single($id)
     {
         $tour = Tour::where('id',$id)->active()->firstOrFail();
-        return view('frontend.tour-detail',compact('tour'));
+        $reviews = Review::active()->orderByDesc('created_at')->get();
+        return view('frontend.tour-detail',compact('tour','reviews'));
 
     }
 }
