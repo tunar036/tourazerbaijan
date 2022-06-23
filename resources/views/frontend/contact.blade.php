@@ -50,9 +50,7 @@
                             <p>
                                 <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
                             </p>
-                            <p>
-                                <a href="mailto:support@gmail.com">support@gmail.com</a>
-                            </p>
+                      
                         </div>
                     </div>
                 </div>

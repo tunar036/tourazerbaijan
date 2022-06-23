@@ -31,6 +31,7 @@ Route::get('tour-detail/{id}',[TourController::class,'single'])->name('tour-deta
 
 
 Route::get('destinations',[CategoryController::class,'index'])->name('destinations');
+Route::get('destination/{id}',[CategoryController::class,'single'])->name('destination-detail');
 
 
 Route::get('blog',function(){

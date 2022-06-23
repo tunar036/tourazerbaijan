@@ -41,7 +41,7 @@
                 @foreach ($categories as $category)
                     <div class="col-md-6 col-12">
                         <div class="destination-item">
-                            <a href="tours.html">
+                            <a href="{{route('destination-detail',$category->id)}}">
                                 <img src="{{Voyager::image($category->image)}}" alt="">
                                 <div class="info-overlay">
                                     <h4>{{$category->getTranslatedAttribute('name', App::getLocale(), 'az');}}</h4>

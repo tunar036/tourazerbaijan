@@ -15,22 +15,22 @@
         </button>
         <div class="collapse navbar-collapse flex-grow-1" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
+                <li class="nav-item {{Request::is('/')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('index') }}">{{ __('lang.home') }}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is('about-us')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('about') }}">{{ __('lang.about') }}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is('tours')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('tours') }}">{{ __('lang.tours') }}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is('destinations')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('destinations') }}">{{ __('lang.destinations') }}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is('blog')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('blog') }}">{{ __('lang.blog') }}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is('contact-us')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('contact') }}">{{ __('lang.contact') }}</a>
                 </li>
             </ul>
