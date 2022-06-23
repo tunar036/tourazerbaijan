@@ -12,6 +12,8 @@
     <!--Preload-->
 
     @include('frontend.includes.header')
+    @include('frontend.includes.whatsapp')
+
     <!-- end nav -->
     <section class="carousel slide" id="banner" data-bs-ride="carousel">
         <div class="carousel-inner">

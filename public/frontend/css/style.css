@@ -4498,3 +4498,12 @@ form#subscription-form {
         max-width: 1200px;
     }
 }
+
+
+.whatsapp{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 100;
+    
+}

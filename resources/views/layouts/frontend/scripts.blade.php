@@ -15,3 +15,7 @@
     <script src="{{ asset('frontend/js/scrollCue.min.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('frontend/js/script.js') }}"></script>
+
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
