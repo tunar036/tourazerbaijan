@@ -98,11 +98,10 @@
             <div class="row">
                 <div class="col-md-12 col-lg-5">
                     <div class="about-us-left" data-cues="slideInUp">
-                        <h3 class="mt-n6">About Us</h3>
-                        <h2>Explore all tour of the world with us.</h2>
-                        <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected
-                            humour, or randomised words which don't look even slightly believable.</p>
-                        <div class="about-info" data-cues="slideInLeft">
+                        <h3 class="mt-n6">{{$about_us->getTranslatedAttribute('title', App::getLocale(),'az')}}</h3>
+                        <h2>{{$about_us->getTranslatedAttribute('short_text', App::getLocale(),'az')}}</h2>
+                        <p>{!! $about_us->getTranslatedAttribute('description', App::getLocale(), 'az') !!}</p>
+                        {{-- <div class="about-info" data-cues="slideInLeft">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
                                     <span class="align-self-start mr-3 media-icon">
@@ -136,15 +135,15 @@
                                     <p>Lorem Ipsum available, but the majority have suffered alteration in some.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="cta-button">
-                            <a href="booking.html" class="btn btn-primary">Booking Now</a>
+                            <a href="{{route('about')}}" class="btn btn-primary">{{ __('lang.about') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-7">
                     <div class="about-right">
-                        <img class="tilt-img" src="{{ asset('frontend/img/about/1.png') }}" alt="">
+                        <img class="tilt-img" src="{{Voyager::image($about_us->image)}}" alt="">
                     </div>
                 </div>
             </div>

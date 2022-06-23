@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ReviewController;
@@ -22,9 +23,7 @@ use TCG\Voyager\Facades\Voyager;
 
 Route::get('/',[HomepageController::class,'index'])->name('index');
 
-Route::get('about-us',function(){
-    return view('frontend.about');
-})->name('about');
+Route::get('about-us',[AboutController::class,'index'])->name('about');
 
 Route::get('tours',[TourController::class,'index'])->name('tours');
 Route::get('tour-detail/{id}',[TourController::class,'single'])->name('tour-detail');
