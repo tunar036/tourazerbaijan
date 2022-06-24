@@ -10,7 +10,13 @@ use TCG\Voyager\Traits\Translatable;
 class Address extends Model
 {
     use HasFactory,Translatable;
-    protected $translatable = ['name'];
+    protected $table = 'addresses';
+    protected $translatable = ['name','title'];
+    public function tours()
+    {
+        return $this->hasMany(Tour::class,'address_id');
+    }
+
 
 
     public function scopeActive($query)

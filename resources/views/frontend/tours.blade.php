@@ -79,7 +79,7 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i> (2) </span>
+                                            <i class="fas fa-star"></i> </span>
                                     </div>
 
                                     <h6>{{ $tour->getTranslatedAttribute('title', App::getLocale(), 'az') }} </h6>
