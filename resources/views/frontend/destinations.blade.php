@@ -42,7 +42,7 @@
                     <div class="col-md-6 col-12">
                         <div class="destination-item">
                             <a href="{{route('destination-detail',$category->id)}}">
-                                <img src="{{Voyager::image($category->image)}}" alt="">
+                                <img src="{{Voyager::image($category->thumbnail('cropped'))}}" alt="">
                                 <div class="info-overlay">
                                     <h4>{{$category->getTranslatedAttribute('name', App::getLocale(), 'az');}}</h4>
                                     <h3>{{$category->getTranslatedAttribute('title', App::getLocale(), 'az');}}</h3>

@@ -34,9 +34,9 @@
                     <a class="nav-link" href="{{ route('contact') }}">{{ __('lang.contact') }}</a>
                 </li>
             </ul>
-            <div class="booking-button">
+            {{-- <div class="booking-button">
                 <a href="booking.html" class="btn btn-primary btn-white">Booking Now</a>
-            </div>
+            </div> --}}
                 <ul>
                     <li ><a @if(Session('locale') == 'en') style="color:#029E9D;" @endif href="{{ url('/locale/en') }}">en</a></li>
                     <li><a @if(Session('locale') == 'az') style="color:#029E9D;" @endif href="{{ url('/locale/az') }}">az</a></li>

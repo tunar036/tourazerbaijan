@@ -68,7 +68,7 @@
                     <div class="col-md-6 col-lg-4">
                         <a href="{{ route('tour-detail', $tour->id) }}">
                             <div class="card tour-card wow fadeIn">
-                                <img class="card-img-top" src="{{ Voyager::image($tour->image) }}" alt="">
+                                <img class="card-img-top" src="{{Voyager::image($tour->thumbnail('cropped'))}}" alt="">
                                 <span class="tour-duration">
                                     <i class="fas fa-history"></i> {{ $tour->days }} Days </span>
                                 <div class="card-body">
