@@ -82,7 +82,7 @@
             <div class="row mt-5">
                 <div class="col-md-8 col-lg-9">
                     <div class="footer-left">
-                        <img src="img/footer-logo.png" alt="">
+                        <img src="{{ asset('frontend/img/footer-logo.png') }}" alt="">
                         <div class="h-border"></div>
                         <div class="copyright">
                             <p>© 2022 All Right Reserved by theme_crazy</p>

@@ -591,11 +591,11 @@ section.inner-banner::before {
     width: 100%;
     float: left;
     height: auto;
-    background: url(img/banner/bottom-left.png) no-repeat left bottom;
+    background: no-repeat left bottom;
 }
 
 #banner .carousel-inner {
-    background: url(img/banner/banner-top-right.png) no-repeat top right;
+    background: no-repeat top right;
     background-size: 40% auto;
 }
 
@@ -813,7 +813,7 @@ section.inner-banner::before {
 
 .destination-item a img {
     width: 100%;
-    height: auto;
+    height: 350px;
 }
 
 .destination-item .info-overlay {

@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg {{ Request::is('/') ? 'primary-bg' : 'white-bg' }}">
     <div class="container">
         <a class="navbar-brand" href="{{route('index')}}">
-            {{-- <img src="{{ asset('frontend/img/logo.png') }}" alt="Logo"> --}}
-            <img src="
+            <img style="width: 80px;height:80px;" src="{{ asset('frontend/img/tour.png') }}" alt="Logo">
+            {{-- <img src="
             @if (Request::is('/')) {{ asset('frontend/img/logo.png') }}
             @else
             {{ asset('frontend/img/logo-colored.png') }} @endif
-            " alt="Logo">
+            " alt="Logo"> --}}
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

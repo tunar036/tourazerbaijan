@@ -15,8 +15,8 @@
     @include('frontend.includes.whatsapp')
 
     <!-- end nav -->
-    <section class="carousel slide" id="banner" data-bs-ride="carousel">
-        <div class="carousel-inner">
+    <section style="background-image:url({{ asset('frontend/img/banner/bottom-left.png') }})" class="carousel slide" id="banner" data-bs-ride="carousel">
+        <div style="background-image:url({{ asset('frontend/img/banner/banner-top-right.png') }})" class="carousel-inner">
             @foreach ($sliders as $item)
                 <div class="carousel-item @if ($loop->first) active @endif">
                     <div class="banner-caption">
@@ -52,13 +52,13 @@
                 <span class="visually-hidden">Next</span>
             </button>
             <div class="shape1 d-none d-lg-block">
-                <img src="img/banner/banner-shape1.png" alt="">
+                <img src="{{ asset('frontend/img/banner/banner-shape1.png') }}" alt="">
             </div>
             <div class="shape2 d-none d-lg-block">
-                <img src="img/banner/banner-shape2.png" alt="">
+                <img src="{{ asset('frontend/img/banner/banner-shape2.png') }}" alt="">
             </div>
             <div class="shape3 d-none d-lg-block">
-                <img src="img/banner/banner-shape3.png" alt="">
+                <img src="{{ asset('frontend/img/banner/banner-shape3.png') }}" alt="">
             </div>
         </div>
     </section>
@@ -152,7 +152,7 @@
     <!-- end about us -->
     <!-- start features -->
 
-    <section class="section-spacing features" style="background-image: url({{ asset('frontend/img/features/1.png') }});">
+    {{-- <section class="section-spacing features" style="background-image: url({{ asset('frontend/img/features/1.png') }});">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-7 col-lg-5" data-cues="slideInRight">
@@ -188,7 +188,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- end features -->
     <!-- start popular tours -->
     <section class="section-spacing tours">
