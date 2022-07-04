@@ -48,7 +48,7 @@
                         <div class="h-border"></div>
                         <div class="contact-sub-text">
                             <p>
-                                <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a>
+                                <a href="mailto:{{$email}}">{{$email}}</a>
                             </p>
                       
                         </div>
@@ -65,10 +65,10 @@
                         <div class="h-border"></div>
                         <div class="contact-sub-text">
                             <p>
-                                <a href="#">+ 00 12345 67890</a>
+                                <a href="tel:{{$phone1}}">{{$phone1}}</a>
                             </p>
                             <p>
-                                <a href="#">+ 00 09876 54321</a>
+                                <a href="tel:{{$phone2}}">{{$phone2}}</a>
                             </p>
                         </div>
                     </div>
@@ -96,9 +96,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 contact-map">
+        {{-- <div class="col-12 contact-map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3988.8270523294163!2d103.8527512!3d1.2772197!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1632647635261!5m2!1sen!2sbd" class="google-map" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+        </div> --}}
     </section>
     <!-- end contact -->
     

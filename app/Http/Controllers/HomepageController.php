@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Address;
 use App\Models\Category;
 use App\Models\Slider;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -15,7 +16,8 @@ class HomepageController extends Controller
         $sliders = Slider::active()->get();
         $about_us= About::firstOrFail();
         $categories = Address::active()->get();
+        $populars = Tour::active()->where('order',1)->get();
         // dd($categories);
-        return view('frontend.index',compact('sliders','categories','about_us'));
+        return view('frontend.index',compact('sliders','categories','about_us','populars'));
     }
 }

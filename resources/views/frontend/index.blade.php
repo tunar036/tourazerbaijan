@@ -15,7 +15,8 @@
     @include('frontend.includes.whatsapp')
 
     <!-- end nav -->
-    <section style="background-image:url({{ asset('frontend/img/banner/bottom-left.png') }})" class="carousel slide" id="banner" data-bs-ride="carousel">
+    <section style="background-image:url({{ asset('frontend/img/banner/bottom-left.png') }})" class="carousel slide"
+        id="banner" data-bs-ride="carousel">
         <div style="background-image:url({{ asset('frontend/img/banner/banner-top-right.png') }})" class="carousel-inner">
             @foreach ($sliders as $item)
                 <div class="carousel-item @if ($loop->first) active @endif">
@@ -78,11 +79,11 @@
                 @foreach ($categories as $category)
                     <div class="col-md-6 col-12">
                         <div class="destination-item">
-                            <a href="{{route('destination-detail',$category->id)}}">
-                                <img src="{{Voyager::image($category->image)}}" alt="">
+                            <a href="{{ route('destination-detail', $category->id) }}">
+                                <img src="{{ Voyager::image($category->image) }}" alt="">
                                 <div class="info-overlay">
-                                    <h4>{{$category->getTranslatedAttribute('name', App::getLocale(), 'az');}}</h4>
-                                    <h3>{{$category->getTranslatedAttribute('title', App::getLocale(), 'az');}}</h3>
+                                    <h4>{{ $category->getTranslatedAttribute('name', App::getLocale(), 'az') }}</h4>
+                                    <h3>{{ $category->getTranslatedAttribute('title', App::getLocale(), 'az') }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -98,8 +99,8 @@
             <div class="row">
                 <div class="col-md-12 col-lg-5">
                     <div class="about-us-left" data-cues="slideInUp">
-                        <h3 class="mt-n6">{{$about_us->getTranslatedAttribute('title', App::getLocale(),'az')}}</h3>
-                        <h2>{{$about_us->getTranslatedAttribute('short_text', App::getLocale(),'az')}}</h2>
+                        <h3 class="mt-n6">{{ $about_us->getTranslatedAttribute('title', App::getLocale(), 'az') }}</h3>
+                        <h2>{{ $about_us->getTranslatedAttribute('short_text', App::getLocale(), 'az') }}</h2>
                         <p>{!! $about_us->getTranslatedAttribute('description', App::getLocale(), 'az') !!}</p>
                         {{-- <div class="about-info" data-cues="slideInLeft">
                             <div class="d-flex">
@@ -137,13 +138,13 @@
                             </div>
                         </div> --}}
                         <div class="cta-button">
-                            <a href="{{route('about')}}" class="btn btn-primary">{{ __('lang.about') }}</a>
+                            <a href="{{ route('about') }}" class="btn btn-primary">{{ __('lang.about') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-7">
                     <div class="about-right">
-                        <img class="tilt-img" src="{{Voyager::image($about_us->image)}}" alt="">
+                        <img class="tilt-img" src="{{ Voyager::image($about_us->image) }}" alt="">
                     </div>
                 </div>
             </div>
@@ -191,6 +192,7 @@
     </section> --}}
     <!-- end features -->
     <!-- start popular tours -->
+    @if($populars)
     <section class="section-spacing tours">
         <div class="container">
             <div class="row">
@@ -202,97 +204,38 @@
                 </div>
             </div>
             <div class="row" data-cues="slideInRight">
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/1.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
+                @foreach ($populars as $tour)
+                    {{-- @dd($tour->address->getTranslatedAttribute('name', App::getLocale(), 'az')) --}}
+                    <div class="col-md-6 col-lg-4">
+                        <a href="{{ route('tour-detail', $tour->id) }}">
+                            <div class="card tour-card wow fadeIn">
+                                <img class="card-img-top" src="{{ Voyager::image($tour->thumbnail('cropped')) }}"
+                                    alt="">
+                                <span class="tour-duration">
+                                    <i class="fas fa-history"></i> {{ $tour->days }} Days </span>
+                                <div class="card-body">
+                                    <div class="tour-tags">
+                                        <span class="tour-price">From ${{ $tour->price }}</span>
+                                        <span class="tour-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i> </span>
+                                    </div>
+
+                                    <h6>{{ $tour->getTranslatedAttribute('title', App::getLocale(), 'az') }} </h6>
+                                    <p class="mb-0">
+                                        {{ $tour->address->getTranslatedAttribute('name', App::getLocale(), 'az') }}</p>
                                 </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/2.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/3.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4 d-block d-lg-none">
-                    <a href="tours-details.html">
-                        <div class="card tour-card wow fadeIn">
-                            <img class="card-img-top" src="{{ asset('frontend/img/tour/1.png') }}" alt="">
-                            <span class="tour-duration">
-                                <i class="fas fa-history"></i> 12 Days </span>
-                            <div class="card-body">
-                                <div class="tour-tags">
-                                    <span class="tour-price">From $50.00</span>
-                                    <span class="tour-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i> (2) </span>
-                                </div>
-                                <h6>A good traveler has no fixed plans and is not intent on arriving.</h6>
-                                <p class="mb-0">Kuala Lumpur, Malaysia</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
     <!-- end popular tours -->
     <!-- start testimonials -->
     <section class="section-spacing reviews inverse-bg">

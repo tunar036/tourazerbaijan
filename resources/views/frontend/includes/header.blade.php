@@ -37,9 +37,9 @@
             {{-- <div class="booking-button">
                 <a href="booking.html" class="btn btn-primary btn-white">Booking Now</a>
             </div> --}}
-                <ul>
-                    <li ><a @if(Session('locale') == 'en') style="color:#029E9D;" @endif href="{{ url('/locale/en') }}">en</a></li>
-                    <li><a @if(Session('locale') == 'az') style="color:#029E9D;" @endif href="{{ url('/locale/az') }}">az</a></li>
+                <ul class="flex">
+                    <li ><a class="{{ Request::is('/') ? 'lang' : 'lang_black' }}" @if(Session('locale') == 'en') style="color:#FDC703;" @endif href="{{ url('/locale/en') }}">en</a></li>
+                    <li><a class="{{ Request::is('/') ? 'lang' : 'lang_black' }}" @if(Session('locale') == 'az') style="color:#FDC703;" @endif href="{{ url('/locale/az') }}">az</a></li>
                 </ul>
         </div>
     </div>
