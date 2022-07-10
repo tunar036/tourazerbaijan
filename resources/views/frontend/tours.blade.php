@@ -18,13 +18,13 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="banner-content">
-                        <h2>Tour List</h2>
+                        <h2>{{__('lang.tours')}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <a href="{{route('index')}}">{{__('lang.home')}} / </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Tour List</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{__('lang.tours')}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -46,7 +46,7 @@
                         <h4>{{ __('lang.tours') }}</h4>
                     @endif
                 </div>
-                <div class="col d-flex justify-content-end">
+                {{-- <div class="col d-flex justify-content-end">
                     <div class="custom-select">
                         <select>
                             <option value="0">{{ __('lang.Sort') }}</option>
@@ -60,69 +60,19 @@
                     <a href="tours.html" class="tour-bar-icon">
                         <i class="fas fa-th-large"></i>
                     </a>
-                </div>
+                </div> --}}
             </div>
             <div class="row" data-cues="slideInLeft">
                 @foreach ($tours as $tour)
-                    {{-- @dd($tour->address->getTranslatedAttribute('name', App::getLocale(), 'az')) --}}
-                    <div class="col-md-6 col-lg-4">
-                        <a href="{{ route('tour-detail', $tour->id) }}">
-                            <div class="card tour-card wow fadeIn">
-                                <img class="card-img-top" src="{{Voyager::image($tour->thumbnail('cropped'))}}" alt="">
-                                <span class="tour-duration">
-                                    <i class="fas fa-history"></i> {{ $tour->days }} Days </span>
-                                <div class="card-body">
-                                    <div class="tour-tags">
-                                        <span class="tour-price">From ${{ $tour->price }}</span>
-                                        <span class="tour-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i> </span>
-                                    </div>
-
-                                    <h6>{{ $tour->getTranslatedAttribute('title', App::getLocale(), 'az') }} </h6>
-                                    <p class="mb-0">
-                                        {{ $tour->address->getTranslatedAttribute('name', App::getLocale(), 'az') }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    @include('frontend.includes.tour')
                 @endforeach
-
             </div>
             <div class="row">
-                <div class="pagination-container">
-                    <ul class="pagination justify-content-center">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">
-                                    <i class="fa fa-angle-double-left"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">
-                                    <i class="fa fa-angle-double-right"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                @if ($tours->hasPages())
+                    <div class="pagination-wrapper">
+                        {{ $tours->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </section>

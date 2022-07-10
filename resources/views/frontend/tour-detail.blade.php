@@ -18,13 +18,13 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="banner-content">
-                        <h2>Tour List</h2>
+                        <h2>{{__('lang.tour_detail')}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <a href="{{route('index')}}">{{__('lang.home')}} /</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Tour List</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{__('lang.tour_detail')}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -54,7 +54,7 @@
                             <div class="h-border"></div>
                             <div class="tour-tags">
                                 <span class="tour-rating">
-                                    <i class="fas fa-history"></i> {{ $tour->days }} days </span>
+                                    <i class="fas fa-history"></i> {{ $tour->days }} {{__('lang.days')}} </span>
                                 <span class="tour-rating t-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -62,7 +62,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i> (2) </span>
                                 <div class="tour-tag-btn">
-                                    <span class="tour-price">{{ $tour->price }}&#8380</span>
+                                    <span class="tour-price">$ {{ $tour->price }}</span>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12">
                     <div class="tours-overview">
-                        <h2 class="faq-hedar">Tur haqqında </h2>
+                        <h2 class="faq-hedar">{{__('lang.about_tour')}} </h2>
                         <p class="tour-title"> {{ $tour->getTranslatedAttribute('title', App::getLocale(), 'az') }} </p>
                     </div>
                     <p>{!! $tour->getTranslatedAttribute('text', App::getLocale(), 'az') !!}</p>
@@ -141,12 +141,12 @@
                             </div>
                         </div>
                     </div> --}}
-                    <h2 class="faq-hedar">Tour Location</h2>
+                    {{-- <h2 class="faq-hedar">Tour Location</h2>
                     <div class="col-12 contact-map">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3988.8270523294163!2d103.8527512!3d1.2772197!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1632647635261!5m2!1sen!2sbd"
                             class="google-map" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+                    </div> --}}
                     <h2 class="faq-hedar">Frequently Asked Question</h2>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
@@ -200,7 +200,7 @@
                     </div>
                     <div class="blog-details-reply">
                         @if (count($reviews) > 0)
-                            <h5>Reviews</h5>
+                            <h5>{{__('lang.reviews')}}</h5>
                         @endif
                         <div class="blog-reply-wrapper">
                             @foreach ($reviews as $review)
@@ -210,7 +210,7 @@
                                     </div>
                                     <div class="blog-reply-content">
                                         <h5>{{ $review->name }}</h5>
-                                        <span class="reply-date">{{ $review->created_at }}</span>
+                                        <span class="reply-date">{!! date('d M Y', strtotime($review->created_at)) !!}</span>
                                         {{-- <span class="tour-rating">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -225,7 +225,7 @@
                         </div>
                     </div>
                     <div class="contact-form-wrapper wow fadeIn">
-                        <h3>Write a Review</h3>
+                        <h3>{{__('lang.write_review')}}</h3>
                         {{-- <div class="form-rating">
                             <span class="rating">Rating: </span>
                             <span class="tour-rating">
@@ -241,26 +241,26 @@
                                 @csrf
                                 <div class="mb-4">
                                     <input type="text" class="form-control" id="your_name" name="name"
-                                        placeholder="Enter your name">
+                                        placeholder="{{__('lang.enter_your_name')}}">
                                     @error('name')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="mb-4">
                                     <input type="email" class="form-control" id="email_address" name="email"
-                                        placeholder="Enter email address">
+                                        placeholder="enter_your_email">
                                     @error('email')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="keyword" rows="6" name="text" placeholder="Type you keyword"></textarea>
+                                    <textarea class="form-control" id="keyword" rows="6" name="text" placeholder="{{__('lang.enter_your_message')}}"></textarea>
                                     @error('text')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <input type="hidden" value="{{ $tour->id }}" name="tour_id">
-                                <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                <button type="submit" class="btn btn-primary">{{__('lang.submit_comment')}}</button>
                             </form>
                         </div>
                     </div>

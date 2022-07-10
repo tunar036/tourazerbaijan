@@ -27,9 +27,9 @@
                 <li class="nav-item {{Request::is('destinations')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('destinations') }}">{{ __('lang.destinations') }}</a>
                 </li>
-                <li class="nav-item {{Request::is('blog')  ? 'active' : ''}}">
+                {{-- <li class="nav-item {{Request::is('blog')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('blog') }}">{{ __('lang.blog') }}</a>
-                </li>
+                </li> --}}
                 <li class="nav-item {{Request::is('contact-us')  ? 'active' : ''}}">
                     <a class="nav-link" href="{{ route('contact') }}">{{ __('lang.contact') }}</a>
                 </li>

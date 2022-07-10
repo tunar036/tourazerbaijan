@@ -70,8 +70,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title text-center">
-                        <h3 class="mt-n6">Destinations</h3>
-                        <h2 class="mb-0">Choose Your Place</h2>
+                        <h3 class="mt-n6">{{__('lang.destinations')}}</h3>
+                        <h2 class="mb-0">{{__('lang.choose_your_place')}}</h2>
                     </div>
                 </div>
             </div>
@@ -192,49 +192,24 @@
     </section> --}}
     <!-- end features -->
     <!-- start popular tours -->
-    @if($populars)
-    <section class="section-spacing tours">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title text-center">
-                        <h3 class="mt-n6">Featured Tours</h3>
-                        <h2 class="mb-0">Most Popular Tours</h2>
+    @if ($populars)
+        <section class="section-spacing tours">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title text-center">
+                            {{-- <h3 class="mt-n6">Featured Tours</h3> --}}
+                            <h2 class="mb-0">{{__('lang.most_popular_tours')}}</h2>
+                        </div>
                     </div>
                 </div>
+                <div class="row" data-cues="slideInRight">
+                    @foreach ($populars as $tour)
+                        @include('frontend.includes.tour')
+                    @endforeach
+                </div>
             </div>
-            <div class="row" data-cues="slideInRight">
-                @foreach ($populars as $tour)
-                    {{-- @dd($tour->address->getTranslatedAttribute('name', App::getLocale(), 'az')) --}}
-                    <div class="col-md-6 col-lg-4">
-                        <a href="{{ route('tour-detail', $tour->id) }}">
-                            <div class="card tour-card wow fadeIn">
-                                <img class="card-img-top" src="{{ Voyager::image($tour->thumbnail('cropped')) }}"
-                                    alt="">
-                                <span class="tour-duration">
-                                    <i class="fas fa-history"></i> {{ $tour->days }} Days </span>
-                                <div class="card-body">
-                                    <div class="tour-tags">
-                                        <span class="tour-price">From ${{ $tour->price }}</span>
-                                        <span class="tour-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i> </span>
-                                    </div>
-
-                                    <h6>{{ $tour->getTranslatedAttribute('title', App::getLocale(), 'az') }} </h6>
-                                    <p class="mb-0">
-                                        {{ $tour->address->getTranslatedAttribute('name', App::getLocale(), 'az') }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+        </section>
     @endif
     <!-- end popular tours -->
     <!-- start testimonials -->
@@ -332,7 +307,7 @@
     </section>
     <!-- end testimonials -->
     <!-- start blog -->
-    <section class="section-spacing blogs">
+    {{-- <section class="section-spacing blogs">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -457,7 +432,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- end blog -->
     <!-- start footer -->
     @include('frontend.includes.footer')

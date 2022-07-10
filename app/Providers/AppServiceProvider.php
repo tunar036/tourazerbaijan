@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Address;
 use App\Models\Social;
 use Doctrine\DBAL\Schema\View;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,5 +39,8 @@ class AppServiceProvider extends ServiceProvider
             'instagram' => $instagram,
             'facebook' => $facebook,
         ]);
+
+        Paginator::useBootstrap();
+
     }
 }

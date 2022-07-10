@@ -18,13 +18,13 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="banner-content">
-                        <h2>About Us</h2>
+                        <h2>{{__('lang.about')}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <a href="{{route('index')}}">{{__('lang.home')}}  /</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{__('lang.about')}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -92,7 +92,7 @@
     </section>
     <!-- end about us -->
     <!-- start features -->
-    <section class="section-spacing features" style="background-image: url({{ asset('frontend/img/features/1.png') }} );">
+    {{-- <section class="section-spacing features" style="background-image: url({{ asset('frontend/img/features/1.png') }} );">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-lg-5" data-cues="slideInUp">
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- end features -->
     <!-- start team sec -->
     <section class="section-spacing team-sec">

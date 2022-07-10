@@ -10,7 +10,7 @@ class TourController extends Controller
 {
     public function index()
     {
-        $tours = Tour::active()->get();
+        $tours = Tour::active()->paginate(6);
         // dd($tours);
         return view('frontend.tours',compact('tours'));
     }

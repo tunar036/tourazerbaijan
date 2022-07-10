@@ -19,13 +19,13 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="banner-content">
-                        <h2>Destinations</h2>
+                        <h2>{{__('lang.destinations')}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <a href="{{route('index')}}">{{__('lang.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Destinations</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{__('lang.destinations')}}</li>
                             </ol>
                         </nav>
                     </div>

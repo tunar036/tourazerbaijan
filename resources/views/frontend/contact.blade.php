@@ -18,13 +18,13 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="banner-content">
-                        <h2>Contact</h2>
+                        <h2>{{__('lang.contact')}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html">Home</a>
+                                    <a href="{{route('index')}}">{{__('lang.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{__('lang.contact')}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -43,7 +43,7 @@
                             <a href="#">
                                 <i class="far fa-envelope"></i>
                             </a>
-                            <p class="contact-text">Email Address: </p>
+                            <p class="contact-text">{{__('lang.email')}}: </p>
                         </div>
                         <div class="h-border"></div>
                         <div class="contact-sub-text">
@@ -60,7 +60,7 @@
                             <a href="#">
                                 <i class="fas fa-phone-alt"></i>
                             </a>
-                            <p class="contact-text">Phone Number: </p>
+                            <p class="contact-text">{{__('lang.phone')}}: </p>
                         </div>
                         <div class="h-border"></div>
                         <div class="contact-sub-text">
@@ -82,10 +82,10 @@
                     <div class="contact-form">
                         <form>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="your_name" placeholder="Enter your name">
+                                <input type="text" class="form-control" id="your_name" placeholder="{{__('lang.enter_your_name')}}">
                             </div>
                             <div class="mb-4">
-                                <input type="email" class="form-control" id="email_address" placeholder="Enter email address">
+                                <input type="email" class="form-control" id="email_address" placeholder="{{__('lang.enter_your_email')}}">
                             </div>
                             <div class="mb-3">
                                 <textarea class="form-control" id="keyword" rows="6" placeholder="Type you keyword"></textarea>
