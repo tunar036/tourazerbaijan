@@ -29,7 +29,13 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{ route('index') }}">{{ __('lang.home') }} / </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">{{ __('lang.tours') }}</li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    @if (isset($category))
+                                    {{ $category->getTranslatedAttribute('name', App::getLocale(), 'az') }} {{ __('lang.of_tours') }}
+                                    @else
+                                    {{ __('lang.tours') }}
+                            @endif
+                                </li>
                             </ol>
                         </nav>
                     </div>
