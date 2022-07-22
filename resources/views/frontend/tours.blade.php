@@ -63,7 +63,7 @@
                 </div>
             </div>
         @else
-            <h4>Bu istiqametde tur yoxdur</h4>
+            <h4>{{ __('lang.no_tours') }}</h4>
         @endif
     </section>
 
