@@ -50,9 +50,12 @@
             <div class="container">
                 <div class="row align-items-center tour-bar-row">
                     <div class="col">
-                        {{-- <p class="tour-bar-text">Showing 1-6 of 20 results</p> --}}
+                        @if (isset($category))
                         <h4>{{ $category->getTranslatedAttribute('name', App::getLocale(), 'az') }}
                             {{ __('lang.of_tours') }}</h4>
+                            @else
+                            <h4>{{ __('lang.tours') }}</h4>
+                            @endif
                     </div>
                 </div>
                 <div class="row" data-cues="slideInLeft">
@@ -71,6 +74,32 @@
         @else
             <h4>{{ __('lang.no_tours') }}</h4>
         @endif
+    </section>
+    <section class="section-spacing-tours tours">
+        <div class="container">
+            <div class="row align-items-center tour-bar-row">
+                <div class="col">
+                    @if (!empty($category))
+                        <h4>{{ $category->getTranslatedAttribute('name', App::getLocale(), 'az') }}
+                            {{ __('lang.of_tours') }}</h4>
+                    @else
+                        <h4>{{ __('lang.tours') }}</h4>
+                    @endif
+                </div>
+            </div>
+            @if (count($tours) > 0)
+                <div class="row" data-cues="slideInLeft">
+                    @foreach ($tours as $tour)
+                        @include('frontend.includes.tour')
+                    @endforeach
+                </div>
+                <div class="row">
+                    <div class="pagination-wrapper">
+                        {{ $tours->links() }}
+                    </div>
+                </div>
+            @endif
+        </div>
     </section>
 
     @include('frontend.includes.footer')

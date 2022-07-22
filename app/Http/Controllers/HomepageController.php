@@ -15,9 +15,10 @@ class HomepageController extends Controller
     {
         $sliders = Slider::active()->get();
         $about_us= About::firstOrFail();
+        // dd($about_us);
         $categories = Address::active()->get();
         $populars = Tour::active()->where('order',1)->get();
-        // dd($categories);
+        // dd($populars);
         return view('frontend.index',compact('sliders','categories','about_us','populars'));
     }
 }
